@@ -1,6 +1,6 @@
-/*	$Id: metadata.c 15797 2009-03-18 20:15:24Z moritz $	*/
+/*	$Id$	*/
 /*
- * Copyright (c) 2007, 2009 Moritz Grimm <mdgrimm@gmx.net>
+ * Copyright (c) 2007, 2009 Moritz Grimm <mgrimm@mrsserver.net>
  *
  * Permission to use, copy, modify, and distribute this software for any
  * purpose with or without fee is hereby granted, provided that the above
@@ -105,7 +105,11 @@ metadata_use_taglib(metadata_t *md, FILE **filep)
 
 	metadata_clean_md(md);
 	taglib_set_string_management_enabled(0);
+#ifdef HAVE_ICONV
 	taglib_set_strings_unicode(1);
+#else
+	taglib_set_strings_unicode(0);
+#endif /* HAVE_ICONV */
 
 	if (md->string != NULL) {
 		xfree(md->string);
