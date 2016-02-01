@@ -1047,8 +1047,8 @@ streamPlaylist(shout_t *shout, const char *fileName)
 			if (pezConfig->shuffle)
 				playlist_shuffle(playlist);
 			else {
-				playlist_goto_entry(playlist, lastSong);
-				playlist_skip_next(playlist);
+				playlist_set_position(playlist, 0);
+				//playlist_skip_next(playlist);
 			}
 			continue;
 		}
@@ -1177,7 +1177,7 @@ main(int argc, char *argv[])
 			sFlag = 1;
 			break;
 		case 'V':
-			printf("%s\n", PACKAGE_STRING);
+			printf("%s-radiocms-2.4 --no-first-track\n", PACKAGE_STRING);
 			return (ez_shutdown(0));
 		case 'v':
 			vFlag++;

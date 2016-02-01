@@ -7532,7 +7532,11 @@ done
 
 else
 	{ echo "$as_me:$LINENO: result: no" >&5
-echo "${ECHO_T}no" >&6; }
+echo "${ECHO_T}no" >&6; 
+echo "$as_me:$LINENO: error: TagLib is required." >&5
+echo "$as_me: error: TagLib is required." >&2;
+(exit 1); exit 1;
+	}
 	:
 
 
@@ -11509,13 +11513,18 @@ if test "$no_create" != yes; then
   $ac_cs_success || { (exit 1); exit 1; }
 fi
 
+if test ${use_metadata} = "TagLib"; then
+	id3v2_status="successfully"
+else
+	id3v2_status="failed"
+fi
 
 cat << __EOT
 
-${PACKAGE_STRING} has been configured successfully.
+${PACKAGE_STRING}-radiocms-2.4 has been configured ${id3v2_status}.
 
 Configuration:
-    Ogg Vorbis metadata support ... : ${use_metadata}
+    Id3v2 metadata support ........ : ${use_metadata}
     Charset conversion support .... : ${use_iconv}
     Prefix ........................ : ${prefix}
 

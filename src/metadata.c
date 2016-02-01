@@ -105,11 +105,7 @@ metadata_use_taglib(metadata_t *md, FILE **filep)
 
 	metadata_clean_md(md);
 	taglib_set_string_management_enabled(0);
-#ifdef HAVE_ICONV
 	taglib_set_strings_unicode(1);
-#else
-	taglib_set_strings_unicode(0);
-#endif /* HAVE_ICONV */
 
 	if (md->string != NULL) {
 		xfree(md->string);
