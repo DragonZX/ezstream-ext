@@ -1177,7 +1177,7 @@ main(int argc, char *argv[])
 			sFlag = 1;
 			break;
 		case 'V':
-			printf("%s-radiocms-2.4 --no-first-track\n", PACKAGE_STRING);
+			printf("%s-ext --no-first-track\n", PACKAGE_STRING);
 			return (ez_shutdown(0));
 		case 'v':
 			vFlag++;
